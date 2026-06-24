@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هدية لجوجا ❤️</title>
+<title>هدية لريم ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -98,7 +98,7 @@ color:#e0e0e0;
 text-shadow:0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* تنسيق خاص لاسم جوجا */
+/* تنسيق خاص لاسم ريم */
 .name-highlight{
 background:linear-gradient(135deg,#ff6b6b,#ffd93d);
 -webkit-background-clip:text;
@@ -316,8 +316,8 @@ p{font-size:1rem;}
 .name-highlight{font-size:1.1rem;}
 }
 
-/* شعار خاص لجوجا */
-.goga-badge{
+/* شعار خاص لريم */
+.rem-badge{
 position:fixed;
 top:20px;
 left:20px;
@@ -338,9 +338,73 @@ cursor:default;
 50%{box-shadow:0 0 40px rgba(255,107,107,0.3);}
 }
 
-.goga-badge span{
+.rem-badge span{
 color:#ff6b6b;
 font-weight:bold;
+}
+
+/* زر تشغيل الموسيقى */
+.music-control{
+position:fixed;
+bottom:30px;
+right:30px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.2);
+border-radius:50px;
+padding:12px 20px;
+color:white;
+cursor:pointer;
+z-index:100;
+font-size:1rem;
+transition:all 0.3s ease;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.music-control:hover{
+background:rgba(255,255,255,0.25);
+transform:scale(1.05);
+}
+
+.music-control .icon{
+font-size:1.3rem;
+animation:musicPulse 1s ease-in-out infinite;
+}
+
+@keyframes musicPulse{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.2);}
+}
+
+/* مؤقت لإظهار زر التحكم */
+.music-control.hidden{
+display:none;
+}
+
+/* تنسيق دعاء زيادة الذكريات */
+.blessing-text{
+font-size:1.6rem;
+font-weight:bold;
+background:linear-gradient(135deg,#ffd93d,#ff6b6b,#ffd93d);
+background-size:200% 200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientShift 3s ease-in-out infinite;
+display:inline-block;
+margin-top:10px;
+text-shadow:none;
+}
+
+@keyframes blessingPulse{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.05);}
+}
+
+.blessing-container{
+display:inline-block;
+animation:blessingPulse 2s ease-in-out infinite;
 }
 
 </style>
@@ -348,14 +412,20 @@ font-weight:bold;
 
 <body>
 
-<!-- شعار خاص لجوجا -->
-<div class="goga-badge">
-💝 لـ <span>جوجا</span> 💝
+<!-- شعار خاص لريم -->
+<div class="rem-badge">
+💝 لـ <span>ريم</span> 💝
+</div>
+
+<!-- زر تشغيل/إيقاف الموسيقى -->
+<div class="music-control" id="musicControl" onclick="toggleMusic()">
+<span class="icon">🎵</span>
+<span id="musicStatus">تشغيل</span>
 </div>
 
 <!-- الصفحة 1 -->
 <section class="page active">
-<h1>✨ عندي حاجة مميزة ليكي يا <span class="name-highlight">جوجا</span> ✨</h1>
+<h1>✨ عندي حاجة مميزة ليكي يا <span class="name-highlight">ريم</span> ✨</h1>
 
 <p>
 💫 مش هتاخد منك غير دقايق بسيطة...
@@ -364,43 +434,46 @@ font-weight:bold;
 </p>
 
 <button onclick="nextPage()">
-🚀 يلا نشوف يا <span style="color:#ffd93d;">جوجا</span> 👀
+🚀 يلا نشوف يا <span style="color:#ffd93d;">ريم</span> 👀
 </button>
 </section>
 
 <!-- الصفحة 2 -->
 <section class="page">
-<h1>🌹 رسالة صغيرة لـ <span class="name-highlight">جوجا</span> 🌹</h1>
+<h1>🌹 رسالة صغيرة لـ <span class="name-highlight">ريم</span> 🌹</h1>
 
 <p id="typing"></p>
 
 <button onclick="nextPage()">
-💕 كملي يا <span style="color:#ffd93d;">جوجا</span> ❤️
+💕 كملي يا <span style="color:#ffd93d;">ريم</span> ❤️
 </button>
 </section>
 
 <!-- الصفحة 3 -->
 <section class="page">
-<h1>📸 ذكريات جميلة مع <span class="name-highlight">جوجا</span> 📸</h1>
+<h1>📸 ذكريات جميلة مع <span class="name-highlight">ريم</span> 📸</h1>
 
 <div class="gallery">
-<img src="1.png" alt="صورة 1">
-<img src="2.jpg" alt="صورة 2">
-<img src="3.jpg" alt="صورة 3">
+<img src="https://picsum.photos/300?1" alt="صورة 1">
+<img src="https://picsum.photos/300?2" alt="صورة 2">
+<img src="https://picsum.photos/300?3" alt="صورة 3">
 </div>
 
-<p style="margin-top:20px;font-size:1.1rem;">
-💝       <span style="color:#ffd93d;font-weight:bold;">جوجا</span> 💝ذكريات قليله بس مع الوقت هتكتر يا
-</p>
+<!-- تم التعديل هنا -->
+<div class="blessing-container">
+    <p class="blessing-text">
+        🤲 يارب نزيدهم أكتر وأكتر 🤲
+    </p>
+</div>
 
 <button onclick="nextPage()">
-🌟 التالي يا <span style="color:#ffd93d;">جوجا</span> ✨
+🌟 التالي يا <span style="color:#ffd93d;">ريم</span> ✨
 </button>
 </section>
 
 <!-- الصفحة 4 -->
 <section class="page">
-<h1>💖 بحبك ليه يا <span class="name-highlight">جوجا</span>؟ 💖</h1>
+<h1>💖 بحبك ليه يا <span class="name-highlight">ريم</span>؟ 💖</h1>
 
 <div class="reason" onclick="toggleReason(this)">
 ✨ اضغطي هنا ❤️
@@ -423,24 +496,24 @@ font-weight:bold;
 </div>
 
 <button onclick="nextPage()">
-💞 ولسه فيه يا <span style="color:#ffd93d;">جوجا</span> ❤️
+💞 ولسه فيه يا <span style="color:#ffd93d;">ريم</span> ❤️
 </button>
 </section>
 
 <!-- الصفحة 5 -->
 <section class="page">
-<h1>💌 رسالة من قلبي لـ <span class="name-highlight">جوجا</span> 💌</h1>
+<h1>💌 رسالة من قلبي لـ <span class="name-highlight">ريم</span> 💌</h1>
 
 <p>
 يمكن مبعرفش أعبر دايمًا...
 <br><br>
 بس الحقيقة الوحيدة اللي متأكد منها...
 <br><br>
-💝 إني بحبك جدًا يا <span style="color:#ffd93d;font-weight:bold;font-size:1.8rem;">جوجا</span> 💝
+💝 إني بحبك جدًا يا <span style="color:#ffd93d;font-weight:bold;font-size:1.8rem;">ريم</span> 💝
 </p>
 
 <button onclick="nextPage()">
-🥺 اضغطي هنا يا <span style="color:#ffd93d;">جوجا</span>
+🥺 اضغطي هنا يا <span style="color:#ffd93d;">ريم</span>
 </button>
 </section>
 
@@ -448,22 +521,86 @@ font-weight:bold;
 <section class="page">
 <div class="heart">❤️</div>
 
-<h1>🌺 شكراً إنك في حياتي يا <span class="name-highlight">جوجا</span> 🌺</h1>
+<h1>🌺 شكراً إنك في حياتي يا <span class="name-highlight">ريم</span> 🌺</h1>
 
 <p>
-🤲 ربنا يخليكي ليا يا <span style="color:#ffd93d;font-weight:bold;">جوجا</span> ❤️
+🤲 ربنا يخليكي ليا يا <span style="color:#ffd93d;font-weight:bold;">ريم</span> ❤️
 <br>
 😊 ويديم الضحكة اللي بينا ❤️
 <br><br>
-💕 I Love You <span style="color:#ffd93d;font-weight:bold;">جوجا</span> 💕
+💕 I Love You <span style="color:#ffd93d;font-weight:bold;">ريم</span> 💕
 </p>
 
 <button type="button" onclick="love()">
-😄 اضغطي لو بتحبيني يا <span style="color:#ffd93d;">جوجا</span> 😂
+😄 اضغطي لو بتحبيني يا <span style="color:#ffd93d;">ريم</span> 😂
 </button>
 </section>
 
 <script>
+
+// ====== إعدادات الموسيقى ======
+let audio = null;
+let isMusicPlaying = false;
+let musicStarted = false;
+
+function initMusic() {
+    audio = new Audio('1.mp3');
+    audio.loop = true;
+    audio.volume = 0.5;
+    
+    audio.play().then(() => {
+        isMusicPlaying = true;
+        musicStarted = true;
+        updateMusicButton();
+    }).catch(() => {
+        isMusicPlaying = false;
+        updateMusicButton();
+        document.getElementById('musicStatus').textContent = 'إضغط للتشغيل';
+    });
+}
+
+function toggleMusic() {
+    if (!audio) {
+        initMusic();
+        return;
+    }
+    
+    if (isMusicPlaying) {
+        audio.pause();
+        isMusicPlaying = false;
+    } else {
+        audio.play().then(() => {
+            isMusicPlaying = true;
+        }).catch(() => {
+            alert('يرجى الضغط على الصفحة أولاً ثم تشغيل الموسيقى');
+        });
+    }
+    updateMusicButton();
+}
+
+function updateMusicButton() {
+    const status = document.getElementById('musicStatus');
+    const icon = document.querySelector('.music-control .icon');
+    if (isMusicPlaying) {
+        status.textContent = 'تشغيل 🎵';
+        icon.textContent = '🎵';
+    } else {
+        status.textContent = 'إيقاف ⏸️';
+        icon.textContent = '⏸️';
+    }
+}
+
+document.addEventListener('click', () => {
+    if (!musicStarted) {
+        initMusic();
+    }
+}, { once: true });
+
+window.addEventListener('load', () => {
+    setTimeout(initMusic, 1000);
+});
+
+// ====== باقي الكود ======
 
 let current=0;
 const pages=document.querySelectorAll(".page");
@@ -489,13 +626,13 @@ el.classList.toggle("open");
 }
 
 const text = 
-`💫 حبيت أعملك هدية مختلفة شوية يا جوجا...
+`💫 حبيت أعملك هدية مختلفة شوية يا ريم...
 
 🌹 عشان تعرفي قد إيه وجودك في حياتي مميز ❤️
 
 ✨ كل يوم بيعدي بيأكدلي إني محظوظ بيكي ❤️
 
-🌟 أنتي أجمل هدية جت في حياتي يا جوجا 🌟`;
+🌟 أنتي أجمل هدية جت في حياتي يا ريم 🌟`;
 
 let started=false;
 
@@ -516,6 +653,10 @@ clearInterval(interval);
 }
 
 function love(){
+if (audio) {
+    audio.pause();
+}
+
 document.body.innerHTML=`
 <div style="
 height:100vh;
@@ -542,13 +683,13 @@ background:linear-gradient(135deg,#ff6b6b,#ffd93d);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 ">
-😎 كنت عارف يا جوجا 😎
+😎 كنت عارف يا ريم 😎
 </h1>
 
 <p style="font-size:2rem;max-width:700px;color:#e0e0e0;">
-💝 وإنتي أحلى حاجة حصلت في حياتي يا <span style="color:#ffd93d;font-weight:bold;">جوجا</span> ❤️
+💝 وإنتي أحلى حاجة حصلت في حياتي يا <span style="color:#ffd93d;font-weight:bold;">ريم</span> ❤️
 <br><br>
-🌹 بحبك جدًا يا <span style="color:#ffd93d;font-weight:bold;">جوجا</span> 🌹
+🌹 بحبك جدًا يا <span style="color:#ffd93d;font-weight:bold;">ريم</span> 🌹
 </p>
 
 <div style="margin-top:30px;font-size:3rem;animation:beat 1.2s ease-in-out infinite;">
@@ -566,6 +707,12 @@ background:linear-gradient(135deg,#ff6b6b,#ffd93d);
 </style>
 </div>
 `;
+
+const finalAudio = new Audio
+finalAudio.loop = true;
+finalAudio.volume = 0.3;
+finalAudio.play().catch(() => {});
+
 for(let i=0;i<50;i++){
 setTimeout(()=>createHeart(),i*100);
 }
