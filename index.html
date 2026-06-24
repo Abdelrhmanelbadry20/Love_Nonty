@@ -550,7 +550,7 @@ animation:shake 0.5s ease;
 <span id="musicStatus">تشغيل</span>
 </div>
 
-<!-- الصفحة 1 - صفحة الدخول (خانة واحدة فقط) -->
+<!-- الصفحة 1 - صفحة الدخول -->
 <section class="page active">
 <div style="padding:20px 0;width:100%;display:flex;flex-direction:column;align-items:center;">
 <h1>🔐 خاص جداً<br><span style="font-size:2rem;color:#ffd93d;">لـ <span class="name-highlight">ريم</span> بس</span> 🔐</h1>
@@ -712,13 +712,23 @@ animation:shake 0.5s ease;
 
 <script>
 
-// ====== التحقق من الدخول (خانة واحدة فقط) ======
+// ====== التحقق من الدخول (طرق متعددة) ======
 function checkLogin() {
     const username = document.getElementById('username').value.trim();
     const errorMsg = document.getElementById('errorMsg');
     
-    // الإجابة الصحيحة: سيوفي
-    if (username === 'سيوفي') {
+    // قائمة الباسوردات المسموح بها
+    const allowedPasswords = [
+        'سيوفي',
+        'sayoufe',
+        'sayufe',
+        'sayofe'
+    ];
+    
+    // التحقق إذا كانت الكلمة موجودة في القائمة (تجاهل حالة الحروف)
+    const isValid = allowedPasswords.some(p => p.toLowerCase() === username.toLowerCase());
+    
+    if (isValid) {
         errorMsg.classList.remove('show');
         // الانتقال للصفحة التالية
         const pages = document.querySelectorAll('.page');
